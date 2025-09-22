@@ -1,0 +1,18 @@
+class Solution(object):
+    def kidsWithCandies(self, candies, extraCandies):
+        """
+        :type candies: List[int]
+        :type extraCandies: int
+        :rtype: List[bool]
+        """
+        n = len(candies)
+        result = [True]*n
+        big = max(candies)
+
+        for i in range(n):
+            if candies[i] + extraCandies < big:
+                result[i] = False
+
+        return result
+
+        
