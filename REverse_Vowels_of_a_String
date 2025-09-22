@@ -1,0 +1,35 @@
+class Solution {
+    public String reverseVowels(String s) {
+        char[] input = s.toCharArray();
+        int len = s.length();
+        char[] vowels = new char[len];
+        int vowelslen = 0;
+
+        //Arrange vowels in reverse order
+        for(int i = len-1; i>=0; i--){
+            if(isVowel(input[i])){
+                vowels[vowelslen] = input[i];
+                vowelslen++;
+            }
+        }
+
+        //Use vowel array to get final output
+        StringBuilder result = new StringBuilder();
+        int vowels_index = 0;
+
+        for(int i =0; i<len; i++){
+            if(isVowel(input[i])){
+                result.append(vowels[vowels_index]);
+                vowels_index++;
+            }else{
+                result.append(input[i]);
+            }
+            
+        }
+        return result.toString();
+    }
+    private boolean isVowel(char c) {
+        c = Character.toLowerCase(c);
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+}
