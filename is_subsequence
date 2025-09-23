@@ -5,15 +5,21 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
+        i, j = 0, 0
+
         s_len = len(s)
-        t_len = len(t)
 
-        s_index = 0
-        t_index = 0
+        if s_len == 0:
+            return True
 
-        while s_index < s_len and t_index < t_len:
-            if s[s_index] == t[t_index]:
-                s_index += 1
-            t_index += 1
+        s_ind = 0
 
-        return s_index == s_len
+        for char in t:
+            if char == s[s_ind]:
+                s_ind +=1 
+                if s_ind == s_len:
+                    return True 
+
+        return False
+            
+
