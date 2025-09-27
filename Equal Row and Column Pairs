@@ -1,0 +1,23 @@
+class Solution(object):
+    def equalPairs(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        n = len(grid)
+        freq_row = {}
+        equal_pairs_count = 0
+
+        for row in grid:
+            row_tup = tuple(row)
+            freq_row[row_tup] = freq_row.get(row_tup, 0) + 1
+        
+        for cj in range(n):
+            current_column = []
+            for ri in range(n):
+                current_column.append(grid[ri][cj])
+            current_tuple = tuple(current_column)
+
+            equal_pairs_count += freq_row.get(current_tuple, 0)
+
+        return equal_pairs_count
