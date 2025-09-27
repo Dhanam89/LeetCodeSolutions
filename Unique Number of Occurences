@@ -1,0 +1,12 @@
+class Solution(object):
+    def uniqueOccurrences(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: bool
+        """
+        frequency_map = {}
+        
+        for val in arr:
+            frequency_map[val] = frequency_map.get(val,0) + 1
+        
+        counts = list(frequency_map.values())
