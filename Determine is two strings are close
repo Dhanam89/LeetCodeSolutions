@@ -1,0 +1,24 @@
+class Solution(object):
+    def closeStrings(self, word1, word2):
+
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: bool
+        """
+        frequency_one  = {}
+        frequency_two = {}
+
+        for val in word1:
+            frequency_one[val] = frequency_one.get(val,0) + 1
+    
+        for val in word2:
+            frequency_two[val] = frequency_two.get(val,0) + 1
+    
+        count_one = list(frequency_one.values())
+        count_two = list(frequency_two.values())
+
+        key_one = list(frequency_one.keys())
+        key_two = list(frequency_two.keys())
+
+        return set(key_one) == set(key_two) and sorted(count_one) == sorted(count_two)
